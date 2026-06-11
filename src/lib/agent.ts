@@ -66,7 +66,7 @@ export async function generateNextPlan(
     profile,
     currentPlan.weekNumber + 1,
     "draft",
-    new Date(`${currentPlan.startDate}T00:00:00`),
+    addDays(startOfWeek(new Date(`${currentPlan.startDate}T00:00:00`)), 7),
   );
 
   return {
@@ -235,5 +235,8 @@ function roundDistance(distance: number): number {
 }
 
 function toIsoDate(date: Date): string {
-  return date.toISOString().slice(0, 10);
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 }
