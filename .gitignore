@@ -20,6 +20,7 @@ node_modules/
 dist/
 build/
 out/
+.next/
 coverage/
 
 # Environment files
@@ -31,3 +32,10 @@ coverage/
 .cache/
 .tmp/
 tmp/
+
+# Runtime data
+data/*.sqlite
+data/*.sqlite-*
+
+# Credentials
+gcp-credentials.json
